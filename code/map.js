@@ -85,10 +85,7 @@ var map = new ol.Map({
             ]
         }),
         new ol.layer.Group({
-            // A layer must have a title to appear in the layerswitcher
             title: 'Overlays',
-            // Adding a 'fold' property set to either 'open' or 'close' makes the group layer
-            // collapsible
             fold: 'open',
             layers: [
                 // Stadtteile Hamburg
@@ -102,6 +99,142 @@ var map = new ol.Map({
                     maxResolution: 1000,
                     minResolution: 5,
                     opacity: 1
+                }),
+                new ol.layer.Vector({
+                    title: 'Hamburg',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/hamburg.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'red',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
+                }),
+                new ol.layer.Vector({
+                    title: 'Bahnlinien HH',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/Bahnlinien HH.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'red',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
+                }),
+                new ol.layer.Vector({
+                    title: 'HCU - EG',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/EG.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'green',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
+                }),
+                new ol.layer.Vector({
+                    title: 'HCU - 1OG',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/1OG.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'green',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
+                }),
+                new ol.layer.Vector({
+                    title: 'HCU - 4OG',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/4OG.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'green',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
+                }),
+                new ol.layer.Vector({
+                    title: 'Bundesländer',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/Laender_DE.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'cyan',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
+                }),
+                new ol.layer.Vector({
+                    title: 'Straßen- und Wegenetz Hamburg',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/Strassen-Wegenetz_HH.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'orange',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
+                }),
+                new ol.layer.Vector({
+                    title: 'Siedlungsflächen in Deutschland',
+                    visible: false,
+                    source: new ol.source.Vector({
+                        url: 'data/Siedlungsflächen_DE.geojson',
+                        format: new ol.format.GeoJSON()
+                    }),
+                    style: new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: 'red',
+                            width: 2
+                        }),
+                        fill: new ol.style.Fill({
+                            color: 'rgba(255, 0, 0, 0.1)'
+                        })
+                    })
                 })
             ]
         })
