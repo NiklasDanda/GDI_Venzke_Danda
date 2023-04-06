@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML-Grundgerüst</title>
+		<link rel="stylesheet" href="ol.css" type="text/css">
+		<script language="javascript" Type="text/javascript" src="ol.js"></script>
+		<style>
+		   .header {
+		         width: 800px;
+                         height: 50px;
+			 font-size: 20px; 
+                        }	
+		   .map {
+			background-color: #cccccc;
+			}
+		   .overlay {
+			color: black;
+			}			
+		</style>
+	</head>
+        <body>
+		<div id="header" class="header"> Dies ist eine Überschrift
+		<img align="right" src="img/hcu_logo.svg" width="200px"> </div>
+		<div id="overlay" class="overlay"></div>
+		<div id="map" class="map"></div>
+	</body>
+	<script>
+		// Layer mit Datenquelle
+		var osmLayer = new ol.layer.Tile({
+					source: new ol.source.OSM()
+		});
+		var centerPoint = ol.proj.transform([6.958281, 50.941278], 'EPSG:4326', 'EPSG:3857');  
+		var view = new ol.View({
+				center: centerPoint,
+				zoom: 12,
+				projection: 'EPSG:3857',
+				maxZoom: 16,
+				minZoom: 4,
+		});
+		var map = new ol.Map({
+				view: view,
+				layers: [osmLayer],
+				target: 'map'
+		});
+	</script>
+</html>
