@@ -423,14 +423,14 @@ var overlay = new ol.Overlay({
     element: document.getElementById("overlay"),
     positioning: "bottom-center"
 });
-map.on("click", function (event) {
-    var coor = event.coordinate;
-    var text = map.forEachFeatureAtPixel(event.pixel, function (feature) {
-        var feature = feature.get("stadtteil_");
-        return feature;
-    });
-    var element = overlay.getElement();
-    element.innerHTML = text;
-    overlay.setPosition(coor);
-    map.addOverlay(overlay);
-});
+// map.on("click", function (event) {
+//     var coor = event.coordinate;
+//     var text = map.forEachFeatureAtPixel(event.pixel, function (feature) {
+//         var feature = feature.get("stadtteil_");
+//         return feature;
+//     });
+//     var element = overlay.getElement();
+//     element.innerHTML = text;
+//     overlay.setPosition(coor);
+//     map.addOverlay(overlay);
+// });
