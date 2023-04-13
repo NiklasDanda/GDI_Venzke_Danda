@@ -1,6 +1,6 @@
 import geopandas as gpd
 
-file = 'code/data/Siedlungsflächen_DE.geojson'
+file = 'python/DistrictsHH.geojson'
 # Read GeoJSON file
 gdf = gpd.read_file(file)
 
