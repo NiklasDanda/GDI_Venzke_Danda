@@ -104,7 +104,7 @@ var map = new ol.Map({
                     title: 'Hamburg',
                     visible: false,
                     source: new ol.source.Vector({
-                        url: 'data/hamburg.geojson',
+                        url: 'data/Hamburg.geojson',
                         format: new ol.format.GeoJSON()
                     }),
                     style: new ol.style.Style({
@@ -240,25 +240,25 @@ var map = new ol.Map({
         })
     ]
 });
-    // Create the layer switcher control
-    var layerSwitcher = new ol.control.LayerSwitcher({
-        tipLabel: 'Légende', // Optional label for button
-        groupSelectStyle: 'children' // Can be 'children' [default], 'group' or 'none'
+// Create the layer switcher control
+var layerSwitcher = new ol.control.LayerSwitcher({
+    tipLabel: 'Légende', // Optional label for button
+    groupSelectStyle: 'children' // Can be 'children' [default], 'group' or 'none'
+});
+map.addControl(layerSwitcher);
+// Overlay der Postleitzahlen
+var overlay = new ol.Overlay({
+    element: document.getElementById("overlay"),
+    positioning: "bottom-center"
+});
+map.on("click", function (event) {
+    var coor = event.coordinate;
+    var text = map.forEachFeatureAtPixel(event.pixel, function (feature) {
+        var feature = feature.get("stadtteil_");
+        return feature;
     });
-    map.addControl(layerSwitcher);
-    // Overlay der Postleitzahlen
-    var overlay = new ol.Overlay({
-        element: document.getElementById("overlay"),
-        positioning: "bottom-center"
-    });
-    map.on("click", function (event) {
-        var coor = event.coordinate;
-        var text = map.forEachFeatureAtPixel(event.pixel, function (feature) {
-            var feature = feature.get("stadtteil_");
-            return feature;
-        });
-        var element = overlay.getElement();
-        element.innerHTML = text;
-        overlay.setPosition(coor);
-        map.addOverlay(overlay);
-    });
+    var element = overlay.getElement();
+    element.innerHTML = text;
+    overlay.setPosition(coor);
+    map.addOverlay(overlay);
+});
