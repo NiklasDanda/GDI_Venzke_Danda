@@ -121,7 +121,7 @@ var map = new ol.Map({
                     title: 'Bahnlinien HH',
                     visible: false,
                     source: new ol.source.Vector({
-                        url: 'data/Bahnlinien HH.geojson',
+                        url: 'data/Bahnlinien_HH.geojson',
                         format: new ol.format.GeoJSON()
                     }),
                     style: new ol.style.Style({
