@@ -1,4 +1,4 @@
-# GDI_Venzke_Dand
+# GDI_Venzke_Danda
 
 Unser GDI Projekt
 
