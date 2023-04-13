@@ -88,6 +88,17 @@ var map = new ol.Map({
             title: 'Overlays',
             fold: 'open',
             layers: [
+                // Orthophoto Hamburg 2021
+                new ol.layer.Tile({
+                    title: 'Orthophoto Hamburg 2021',
+                    visible: false,
+                    source: new ol.source.TileWMS({
+                        url: 'https://geodienste.hamburg.de/HH_WMS_DOP',
+                        params: {
+                        'LAYERS': 'DOP'
+                        }
+                    })
+                }),
                 // Stadtteile Hamburg
                 new ol.layer.Vector({
                     title: 'Stadtteile Hamburg',
