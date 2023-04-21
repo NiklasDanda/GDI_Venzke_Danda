@@ -1,15 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Beispielkarte Hamburg</title>
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
     <script src="https://unpkg.com/ol-layerswitcher@4.1.1"></script>
     <link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@4.1.1/dist/ol-layerswitcher.css">
+    <script src="https://unpkg.com/ol-popup@5.0.0"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ol-popup@5.0.0/src/ol-popup.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
 </head>
 <body>
-    <div id="overlay" class="overlay"></div>
+    <div id="overlay_stadtteile" class="overlay_stadtteile"></div>
+    <div id="overlay_bahnlinien" class="overlay_bahnlinien"></div>
     <div id="map" class="map"></div>
     <script src="map.js"></script>
 </body>

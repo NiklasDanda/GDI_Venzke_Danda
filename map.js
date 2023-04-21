@@ -102,7 +102,7 @@ var map = new ol.Map({
                 // Stadtteile Hamburg
                 new ol.layer.Vector({
                     title: "Stadtteile HH",
-                    visible: false,
+                    visible: true,
                     source: new ol.source.Vector({
                         url: "data/DistrictsHH.geojson",
                         format: new ol.format.GeoJSON()
@@ -412,25 +412,75 @@ var map = new ol.Map({
         })
     ]
 });
-// Create the layer switcher control
-var layerSwitcher = new ol.control.LayerSwitcher({
-    tipLabel: "Layer switcher", // Optional label for button
-    groupSelectStyle: "children" // Can be "children" [default], "group" or "none"
-});
-map.addControl(layerSwitcher);
-// Overlay der Postleitzahlen
-var overlay = new ol.Overlay({
-    element: document.getElementById("overlay"),
-    positioning: "bottom-center"
-});
+
+
+// // Overlay der Stadtteile
+// var overlay_st = new ol.Overlay({
+//     element: document.getElementById("overlay_stadtteile"),
+//     positioning: "bottom-center"
+// });
 // map.on("click", function (event) {
 //     var coor = event.coordinate;
 //     var text = map.forEachFeatureAtPixel(event.pixel, function (feature) {
 //         var feature = feature.get("stadtteil_");
 //         return feature;
 //     });
-//     var element = overlay.getElement();
-//     element.innerHTML = text;
-//     overlay.setPosition(coor);
-//     map.addOverlay(overlay);
+//     if (text !== undefined) {
+//         var element = overlay_st.getElement();
+//         element.innerHTML = text;
+//         overlay_st.setPosition(coor);
+//         map.addOverlay(overlay_st);
+//     }
 // });
+
+// // Overlay der Bahnlinien
+// var overlay_bl = new ol.Overlay({
+//     element: document.getElementById("overlay_bahnlinien"),
+//     positioning: "bottom-center"
+// });
+// map.on("click", function (event) {
+//     var coor = event.coordinate;
+//     var text = map.forEachFeatureAtPixel(event.pixel, function (feature) {
+//         var feature = feature.get("KAT");
+//         return feature;
+//     });
+//     if (text !== undefined) {
+//         var element = overlay_bl.getElement();
+//         element.innerHTML = text;
+//         overlay_bl.setPosition(coor);
+//         map.addOverlay(overlay_bl);
+//     }
+// });
+
+var popup = new ol.Overlay.Popup();
+map.addOverlay(popup);
+
+map.on("click", function(event) {
+    var feature = map.forEachFeatureAtPixel(event.pixel, function(feature) {
+        console.log(feature);
+        return feature;
+    });
+
+    if (feature) {
+        var properties = feature.getProperties();
+        var content = "<table>";
+        for (var key in properties) {
+            if (properties.hasOwnProperty(key)) {
+                content += "<tr><td>" + key + "</td><td>" + properties[key] + "</td></tr>";
+            }
+        }
+        content += "</table>";
+        popup.show(event.coordinate, content);
+    } else {
+        popup.hide();
+    }
+});
+
+
+
+// Create the layer switcher control
+var layerSwitcher = new ol.control.LayerSwitcher({
+    tipLabel: "Layer switcher", // Optional label for button
+    groupSelectStyle: "children" // Can be "children" [default], "group" or "none"
+});
+map.addControl(layerSwitcher);
