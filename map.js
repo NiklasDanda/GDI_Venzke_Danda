@@ -35,14 +35,6 @@ var map = new ol.Map({
             fold: "close",
             layers: [
                 new ol.layer.Tile({
-                    title: "Terrain Labels",
-                    type: "base",
-                    visible: false,
-                    source: new ol.source.Stamen({
-                        layer: "terrain-labels"
-                    })
-                }),
-                new ol.layer.Tile({
                     title: "Water color",
                     type: "base",
                     visible: false,
@@ -94,6 +86,9 @@ var map = new ol.Map({
                     visible: false,
                     source: new ol.source.TileWMS({
                         url: "https://geodienste.hamburg.de/HH_WMS_DOP",
+                        attributions: [
+                            '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                        ],
                         params: {
                             "LAYERS": "DOP"
                         }
@@ -102,9 +97,9 @@ var map = new ol.Map({
                 // Stadtteile Hamburg
                 new ol.layer.Vector({
                     title: "Stadtteile HH",
-                    visible: true,
+                    visible: false,
                     source: new ol.source.Vector({
-                        url: "data/DistrictsHH.geojson",
+                        url: "http://geo.local.hcuhh.de/data/districts.geojson",
                         format: new ol.format.GeoJSON()
                     }),
                     maxResolution: 1000,
@@ -271,6 +266,9 @@ var map = new ol.Map({
                             visible: false,
                             source: new ol.source.TileWMS({
                                 url: "https://www.pegelonline.wsv.de/geoserver/po-wms-mnwmhw/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=PegelonlineWMS",
+                                attributions: [
+                                    '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                                ],
                                 params: {
                                     "LAYERS": "PegelonlineWMS",
                                     "TYPE": "simple",
@@ -284,6 +282,9 @@ var map = new ol.Map({
                             visible: false,
                             source: new ol.source.TileWMS({
                                 url: "https://geodienste.hamburg.de/HH_WMS_Grundwasserneubildung?language=ger&version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=HH_WMS_Grundwasserneubildung_Hamburg&format=image/png&STYLE=default",
+                                attributions: [
+                                    '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                                ],
                                 params: {
                                     "LAYERS": "HH_WMS_Grundwasserneubildung_Hamburg",
                                     "TYPE": "simple",
@@ -296,6 +297,9 @@ var map = new ol.Map({
                             visible: false,
                             source: new ol.source.TileWMS({
                                 url: "https://geodienste.hamburg.de/HH_WMS_Hochwasser_gefaehrdeter_Bereich_Tidegebiet_Elbe?request=GetLegendGraphic&version=1.3.0&service=WMS&layer=hw_gef_bereich_tidegebiet_elbe&style=hw_gef_bereich_tidegebiet_elbe&format=image/png",
+                                attributions: [
+                                    '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                                ],
                                 params: {
                                     "LAYERS": "hw_gef_bereich_tidegebiet_elbe",
                                     "TYPE": "simple",
@@ -308,6 +312,9 @@ var map = new ol.Map({
                             visible: false,
                             source: new ol.source.TileWMS({
                                 url: "https://geodienste.hamburg.de/HH_WMS_Badegewaesser?request=GetLegendGraphic&version=1.3.0&service=WMS&layer=badegewaesser&style=style_freizeit_badegewaesser&format=image/png",
+                                attributions: [
+                                    '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                                ],
                                 params: {
                                     "LAYERS": "badegewaesser",
                                     "TYPE": "simple",
@@ -320,6 +327,9 @@ var map = new ol.Map({
                             visible: false,
                             source: new ol.source.TileWMS({
                                 url: "https://geodienste.hamburg.de/HH_WMS_Trockenfallende_Gewaesser?request=GetLegendGraphic&version=1.3.0&service=WMS&layer=trockenfallende_gewaesser&style=trockenfallende_gewaesser&format=image/png",
+                                attributions: [
+                                    '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                                ],
                                 params: {
                                     "LAYERS": "trockenfallende_gewaesser",
                                     "TYPE": "simple",
@@ -332,6 +342,9 @@ var map = new ol.Map({
                             visible: false,
                             source: new ol.source.TileWMS({
                                 url: "https://geodienste.hamburg.de/HH_WMS_Wasserschutzgebiete?request=GetLegendGraphic&version=1.3.0&service=WMS&layer=wasserschutzgebiete_II&style=wasserschutzgebiete_II&format=image/png",
+                                attributions: [
+                                    '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                                ],
                                 params: {
                                     "LAYERS": "wasserschutzgebiete_II",
                                     "TYPE": "simple",
@@ -344,6 +357,9 @@ var map = new ol.Map({
                             visible: false,
                             source: new ol.source.TileWMS({
                                 url: "https://geodienste.hamburg.de/HH_WMS_Wasserschutzgebiete?request=GetLegendGraphic&version=1.3.0&service=WMS&layer=wasserschutzgebiete_II&style=wasserschutzgebiete_II&format=image/png",
+                                attributions: [
+                                    '<a href="http://www.geoinfo.hamburg.de"> | Landesbetrieb Geoinformation und Vermessung</a>'
+                                ],
                                 params: {
                                     "LAYERS": "wasserschutzgebiete_III",
                                     "TYPE": "simple",
@@ -416,8 +432,8 @@ var map = new ol.Map({
 var popup = new ol.Overlay.Popup();
 map.addOverlay(popup);
 
-map.on("click", function(event) {
-    var feature = map.forEachFeatureAtPixel(event.pixel, function(feature) {
+map.on("click", function (event) {
+    var feature = map.forEachFeatureAtPixel(event.pixel, function (feature) {
         console.log(feature);
         return feature;
     });
