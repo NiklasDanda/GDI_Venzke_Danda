@@ -31,7 +31,7 @@ var map = new ol.Map({
     controls: controls,
     layers: [
         new ol.layer.Group({
-            title: "Base maps",
+            title: "Base Maps",
             fold: "close",
             layers: [
                 new ol.layer.Tile({
@@ -77,7 +77,7 @@ var map = new ol.Map({
             ]
         }),
         new ol.layer.Group({
-            title: "Add ons",
+            title: "Add Ons",
             fold: "close",
             layers: [
                 // Orthophoto Hamburg 2021
@@ -253,11 +253,11 @@ var map = new ol.Map({
             ]
         }),
         new ol.layer.Group({
-            title: "Feuchtgebiete HH",
+            title: "Feuchtgebiete",
             fold: "close",
             layers: [
                 new ol.layer.Group({
-                    title: "Gewässer HH",
+                    title: "Gewässer",
                     fold: "close",
                     layers: [
                         // Pegel Deutschland
@@ -371,7 +371,7 @@ var map = new ol.Map({
                 }),
                 // MOORE 
                 new ol.layer.Group({
-                    title: "Moore HH",
+                    title: "Moore",
                     fold: "close",
                     layers: [
                         new ol.layer.Tile({
@@ -434,24 +434,24 @@ map.addOverlay(popup);
 
 map.on("click", function (event) {
     var feature = map.forEachFeatureAtPixel(event.pixel, function (feature) {
-        console.log(feature);
         return feature;
     });
 
     if (feature) {
         var properties = feature.getProperties();
-        var content = "<table>";
+        var bindpopup = "<table id='popup-table'><tr><th>Eigenschaften</th><th>Werte</th>";
         for (var key in properties) {
-            if (properties.hasOwnProperty(key)) {
-                content += "<tr><td>" + key + "</td><td>" + properties[key] + "</td></tr>";
+            if (properties.hasOwnProperty(key) && key !== "geometry" && key !== "destatis") {
+                bindpopup += "<tr><td>" + key + "</td><td>" + properties[key] + "</td></tr>";
             }
         }
-        content += "</table>";
-        popup.show(event.coordinate, content);
+        bindpopup += "</table>";
+        popup.show(event.coordinate, '<div id="popup-content">' + bindpopup + '</div>');
     } else {
         popup.hide();
     }
 });
+
 
 
 
@@ -461,3 +461,21 @@ var layerSwitcher = new ol.control.LayerSwitcher({
     groupSelectStyle: "children" // Can be "children" [default], "group" or "none"
 });
 map.addControl(layerSwitcher);
+
+
+// INFO BUTTON
+var infoButton = document.getElementById('info-button');
+infoButton.addEventListener('click', function () {
+    var modal = document.getElementById('custom-modal');
+    modal.style.display = 'block';
+
+    var closeButton = modal.querySelector('.close');
+    closeButton.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+});
+
+
+
+
+

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Beispielkarte Hamburg</title>
+    <title>Feuchtgebiete in Hamburg</title>
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
     <script src="https://unpkg.com/ol-layerswitcher@4.1.1"></script>
@@ -12,10 +13,32 @@
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
 </head>
+
 <body>
-    <div id="overlay_stadtteile" class="overlay_stadtteile"></div>
-    <div id="overlay_bahnlinien" class="overlay_bahnlinien"></div>
-    <div id="map" class="map"></div>
+    <section>
+        <div id="map"></div>
+        <button id="info-button" class="ol-control ol-info-button" title="Informationen">
+            <img src="img/info.svg" title="Informationen">
+        </button>
+        <div id="custom-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <a href="https://www.hcu-hamburg.de/" target="_blank">
+                    <img src="img/hcu_logo.svg" alt="HCU Logo" id="hcu-logo">
+                </a>
+                <h2>Feuchtgebiete in Hamburg</h2>
+                <p>Diese interaktive Karte gibt Ihnen die Möglichkeit die unterschiedlichsten Informationen über
+                    Gewässer, Moore und Feuchtgebiete im Allgemeinen insbesondere im Raum Hamburg zu erfahren.</p>
+                <p>Zusätzlich können und "Add ons" im Layer Switcher weitere spannende Layer angezeigt werden.</p>
+                <p>Außerdem gibt es die Option zwischen verschiedenen Hintergrundkarten. Diese befinden sich unter "Base
+                    maps"</p>
+                <hr>
+                <p>Erstellt durch Korvin Venzke und Niklas Danda. Bachelorstudenten der Geodäsie und Geoinformatik
+                    an der HafenCity Universität Hamburg im Rahmen des Moduls "Geodateninfrastrukturen" im Mai 2023.</p>
+
+            </div>
+        </div>
+    </section>
     <script src="map.js"></script>
 </body>
 </body>
