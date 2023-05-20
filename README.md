@@ -1,10 +1,11 @@
 # Feuchtgebiete in Hamburg
 #### Korvin Venzke & Niklas Danda | Geodateninfrastrukturen, Mai 2023
-Diese interaktive Karte gibt Ihnen die Möglichkeit die unterschiedlichsten Informationen über Gewässer, Moore und Feuchtgebiete im Allgemeinen insbesondere im Raum Hamburg zu erfahren.
+Diese interaktive Karte gibt Ihnen die Möglichkeit, die unterschiedlichsten Informationen über Gewässer, Moore und Feuchtgebiete im Allgemeinen, insbesondere im Raum Hamburg, zu erfahren.
 
 
 ### Start
-Zum Ausführen der ```index.html``` Datei, ist es notwendig, _VisualStudioCode_ sowie die Erweiterung _Live Server_ installiert zu haben.
+Zum Ausführen der ```index.html``` Datei, ist es notwendig, _VisualStudioCode_ sowie die Erweiterung _Live Server_ installiert zu haben.  
+Damit der Layer "Stadtteile HH" geladen werden kann, muss man sich im Netzwerk der HafenCity Universität Hamburg befinden. Alternativ geht das Einrichten eines VPN-Client (bspw.: Cisco).
 
 
 
@@ -23,5 +24,5 @@ Zum Ausführen der ```index.html``` Datei, ist es notwendig, _VisualStudioCode_ 
    - Ob Satellit, Standard OSM oder "Dark Mode".
 
 ### Web
-Online ist die Karte unter folgendem Link aufrufbar:
+Online ist die Karte unter folgendem Link aufrufbar (allerdings ohne den Layer "Stadtteile HH"):
 https://niklasdanda.github.io/GDI_Venzke_Danda/
