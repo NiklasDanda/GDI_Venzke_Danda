@@ -5,17 +5,17 @@ var centerPoint = ol.proj.transform(
     "EPSG:4326",
     "EPSG:3857"
 );
-// Kontrollelemente fuer die Karte
+// Kontrollelemente für die Karte
 var controls = [
     new ol.control.Attribution({ collapsed: true }),
     new ol.control.Zoom(),
     new ol.control.ScaleLine(),
     new ol.control.FullScreen(),
-    new ol.control.ZoomSlider(),
     new ol.control.MousePosition({
         coordinateFormat: ol.coordinate.createStringXY(4),
         projection: "EPSG:4326"
     }),
+
 ];
 // Festlegung der Kartenansicht
 var view = new ol.View({
@@ -45,13 +45,13 @@ var map = new ol.Map({
                 new ol.layer.Tile({
                     title: "OSM",
                     type: "base",
-                    visible: true,
+                    visible: false,
                     source: new ol.source.OSM()
                 }),
                 new ol.layer.Tile({
                     title: "Dark Matter",
                     type: "base",
-                    visible: false,
+                    visible: true,
                     source: new ol.source.XYZ({
                         url: "https://cartodb-basemaps-{a-d}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
                         attributions: "© CARTO"
@@ -429,6 +429,27 @@ var map = new ol.Map({
     ]
 });
 
+// Create the overview map control
+var overviewMapControl = new ol.control.OverviewMap({
+    layers: [   
+        new ol.layer.Tile({
+            title: "OSM",
+            type: "base",
+            visible: true,
+            source: new ol.source.OSM()
+        })
+    ],
+    collapseLabel: '\u00AB',   // Define a custom collapse label
+    label: '\u00BB',           // Define a custom label for the overview map button   
+});
+// Add the overview map control to the map
+map.addControl(overviewMapControl);
+// Position the overview map control using CSS
+var overviewMapDiv = document.getElementsByClassName('ol-overviewmap')[0];
+overviewMapDiv.style.top = '78px';      // Adjust the top position as needed
+overviewMapDiv.style.height = '0px';     // Adjust the left position as needed
+
+// Add popup overlay
 var popup = new ol.Overlay.Popup();
 map.addOverlay(popup);
 
@@ -451,8 +472,6 @@ map.on("click", function (event) {
         popup.hide();
     }
 });
-
-
 
 
 // Create the layer switcher control
