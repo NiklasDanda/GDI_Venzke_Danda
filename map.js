@@ -15,6 +15,7 @@ var controls = [
         coordinateFormat: ol.coordinate.createStringXY(4),
         projection: "EPSG:4326"
     }),
+    new ol.control.Rotate({ className: "custom-rotation" }),
 
 ];
 // Festlegung der Kartenansicht

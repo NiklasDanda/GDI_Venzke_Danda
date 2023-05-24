@@ -27,6 +27,14 @@
     width: 15%;
 }
 
+
+.custom-rotation {
+    position: absolute;
+    top: 31px;
+    right: 8px;
+    z-index: 1000;
+}
+
 /* POPUP ================================================ */
 #popup-content table {
     border-collapse: collapse;
