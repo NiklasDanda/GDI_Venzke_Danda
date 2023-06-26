@@ -78,6 +78,85 @@ var map = new ol.Map({
             ]
         }),
         new ol.layer.Group({
+            title: "Lokal",
+            fold: "close",
+            layers: [
+                // Lokale Daten in Docker
+                new ol.layer.Tile({
+                    title: "Bundesland_HH",
+                    visible: false,
+                    source: new ol.source.TileWMS({
+                        url: "http://localhost:8080/geoserver/hlf728/wms?service=WMS&version=1.1.0&request=GetMap&layers=hlf728%3ABundesland_HH&bbox=8.420624000437337%2C53.39507758854026%2C10.325959157503767%2C53.96357881203935&width=768&height=330&srs=EPSG%3A25832&styles=&format=application/openlayers",
+                        params: {
+                            "LAYERS": "Bundesland_HH",
+                            "TYPE": "simple",
+                            "FORMAT": "image/png",
+                        }
+                    })
+                }),
+                new ol.layer.Tile({
+                    title: "Districts_HH",
+                    visible: false,
+                    source: new ol.source.TileWMS({
+                        url: "http://localhost:8080/geoserver/hlf728/wms?service=WMS&version=1.1.0&request=GetMap&layers=hlf728%3ADistricts_HH&bbox=8.41319041370058%2C53.39501085500329%2C10.325276801117477%2C53.964906237339584&width=768&height=330&srs=EPSG%3A25832&styles=&format=application/openlayers",
+                        params: {
+                            "LAYERS": "Districts_HH",
+                            "TYPE": "simple",
+                            "FORMAT": "image/png",
+                        }
+                    })
+                }),
+                new ol.layer.Tile({
+                    title: "HCU_EG",
+                    visible: false,
+                    source: new ol.source.TileWMS({
+                        url: "http://localhost:8080/geoserver/hlf728/wms?service=WMS&version=1.1.0&request=GetMap&layers=hlf728%3AHCU_EG&bbox=10.003764110148026%2C53.54001071905738%2C10.005981965718806%2C53.54054124352965&width=768&height=330&srs=EPSG%3A25832&styles=&format=application/openlayers",
+                        params: {
+                            "LAYERS": "HCU_EG",
+                            "TYPE": "simple",
+                            "FORMAT": "image/png",
+                        }
+                    })
+                }),
+                new ol.layer.Tile({
+                    title: "HCU_OG1",
+                    visible: false,
+                    source: new ol.source.TileWMS({
+                        url: "http://localhost:8080/geoserver/hlf728/wms?service=WMS&version=1.1.0&request=GetMap&layers=hlf728%3AHCU_OG1&bbox=10.003508537124134%2C53.53986045268111%2C10.005749166827655%2C53.5405412408845&width=768&height=330&srs=EPSG%3A25832&styles=&format=application/openlayers",
+                        params: {
+                            "LAYERS": "HCU_OG1",
+                            "TYPE": "simple",
+                            "FORMAT": "image/png",
+                        }
+                    })
+                }),
+                new ol.layer.Tile({
+                    title: "HCU_OG4",
+                    visible: false,
+                    source: new ol.source.TileWMS({
+                        url: "http://localhost:8080/geoserver/hlf728/wms?service=WMS&version=1.1.0&request=GetMap&layers=hlf728%3AHCU_OG4&bbox=10.003506584890614%2C53.53985942305863%2C10.005749166803048%2C53.54054129105324&width=768&height=330&srs=EPSG%3A25832&styles=&format=application/openlayers",
+                        params: {
+                            "LAYERS": "HCU_OG4",
+                            "TYPE": "simple",
+                            "FORMAT": "image/png",
+                        }
+                    })
+                }),
+                new ol.layer.Tile({
+                    title: "Wasserschutzgebiete_HH",
+                    visible: false,
+                    source: new ol.source.TileWMS({
+                        url: "http://localhost:8080/geoserver/hlf728/wms?service=WMS&version=1.1.0&request=GetMap&layers=hlf728%3AWasserschutzgebiete_HH&bbox=549469.25%2C5920449.451%2C587015.805%2C5948645.945&width=768&height=576&srs=EPSG%3A25832&styles=&format=application/openlayers",
+                        params: {
+                            "LAYERS": "Wasserschutzgebiete_HH",
+                            "TYPE": "simple",
+                            "FORMAT": "image/png",
+                        }
+                    })
+                }),
+            ]
+        }),
+        new ol.layer.Group({
             title: "Add Ons",
             fold: "close",
             layers: [
@@ -432,7 +511,7 @@ var map = new ol.Map({
 
 // Create the overview map control
 var overviewMapControl = new ol.control.OverviewMap({
-    layers: [   
+    layers: [
         new ol.layer.Tile({
             title: "OSM",
             type: "base",
